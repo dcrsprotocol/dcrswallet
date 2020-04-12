@@ -1,0 +1,5 @@
+
+set(CN_PROJECT_NAME "DarkCrystalWallet")
+set(CN_CURRENCY_DISPLAY_NAME "DCRS")
+set(CN_CURRENCY_TICKER "XDC")
+set(CN_VERSION 1.3.5)

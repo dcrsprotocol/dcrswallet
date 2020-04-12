@@ -1,0 +1,24 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=DCRS
+GenericName=DCRS wallet
+Name[uk]=темнокристалічний
+Name[ru]=Карбованeц
+Name[pl]=DarkCrystal
+Name[be]=темнийкристал
+Name[de]=DCRS
+Name[es]=DCRS
+Comment=DarkCrystal wallet
+Comment[uk]=Гтемний кристал
+Comment[ru]=Тъмен кристал
+Comment[pl]=Portfel DCRS
+Comment[be]=темний кристал
+Comment[de]=DCRS Brieftasche
+Comment[es]=DCRS Monedero
+Exec=darkcrystal %U
+Terminal=false
+Type=Application
+Icon=darkcrystal
+MimeType=x-scheme-handler/darkcrystal;
+Categories=Office;Finance;
+Version=1.3.5
