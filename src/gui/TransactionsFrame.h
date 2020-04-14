@@ -51,10 +51,12 @@ public:
           Incoming,
           Outgoing,
           Mining,
-          InOut
+          InOut,
+          Fusion
       };
 
   void scrollToTransaction(const QModelIndex& _index);
+  void reloadTransactions();
 
 public slots:
   void onCustomContextMenu(const QPoint &point);

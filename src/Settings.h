@@ -57,9 +57,13 @@ public:
   quint64 getOptimizationThreshold() const;
   quint64 getOptimizationMixin() const;
 
+  quint32 getRollBack() const;
+
   bool isEncrypted() const;
   bool isStartOnLoginEnabled() const;
   bool isTrackingMode() const;
+  bool skipFusionTransactions() const;
+  bool hideEverythingOnLocked() const;
 
 #ifdef Q_OS_WIN
   bool isMinimizeToTrayEnabled() const;
@@ -88,6 +92,8 @@ public:
   void setOptimizationInterval(quint64 _interval);
   void setOptimizationThreshold(quint64 _threshold);
   void setOptimizationMixin(quint64 _mixin);
+  void setSkipFusionTransactions(bool _skip);
+  void setHideEverythingOnLocked(bool _hide);
 
 private:
   QJsonObject m_settings;

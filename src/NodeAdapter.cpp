@@ -269,12 +269,34 @@ quint64 NodeAdapter::getMinimalFee() const {
   return m_node->getMinimalFee();
 }
 
+quint64 NodeAdapter::getNodeFeeAmount() const {
+  Q_CHECK_PTR(m_node);
+  return m_node->feeAmount();
+}
+
+QString NodeAdapter::getNodeFeeAddress() const {
+  Q_CHECK_PTR(m_node);
+  return QString::fromStdString(m_node->feeAddress());
+}
+
 CryptoNote::BlockHeaderInfo NodeAdapter::getLastLocalBlockHeaderInfo() {
+  Q_CHECK_PTR(m_node);
   return m_node->getLastLocalBlockHeaderInfo();
 }
 
 uint8_t NodeAdapter::getCurrentBlockMajorVersion() {
-  return getLastLocalBlockHeaderInfo().majorVersion;
+  Q_CHECK_PTR(m_node);
+  return m_node->getCurrentBlockMajorVersion();
+}
+
+quint64 NodeAdapter::getAlreadyGeneratedCoins() {
+  Q_CHECK_PTR(m_node);
+  return m_node->getAlreadyGeneratedCoins();
+}
+
+std::vector<CryptoNote::p2pConnection> NodeAdapter::getConnections() {
+  Q_CHECK_PTR(m_node);
+  return m_node->getConnections();
 }
 
 void NodeAdapter::peerCountUpdated(Node& _node, size_t _count) {
@@ -290,21 +312,6 @@ void NodeAdapter::localBlockchainUpdated(Node& _node, uint64_t _height) {
 void NodeAdapter::lastKnownBlockHeightUpdated(Node& _node, uint64_t _height) {
   Q_UNUSED(_node);
   Q_EMIT lastKnownBlockHeightUpdatedSignal(_height);
-}
-
-void NodeAdapter::startSoloMining(QString _address, size_t _threads_count) {
-  Q_CHECK_PTR(m_node);
-  m_node->startMining(_address.toStdString(), _threads_count);
-}
-
-void NodeAdapter::stopSoloMining() {
-  Q_CHECK_PTR(m_node);
-  m_node->stopMining();
-}
-
-quint64 NodeAdapter::getSpeed() const {
-  Q_CHECK_PTR(m_node);
-  return m_node->getSpeed();
 }
 
 bool NodeAdapter::initInProcessNode() {
